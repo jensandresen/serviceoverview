@@ -1,0 +1,54 @@
+components:
+  - id: channelappgateway
+    name: "Channel App API Gateway"
+    type: gateway
+    layer: xp
+    dependencies:
+      - servicebus    
+      - departure
+  - id: departure
+    name: "Departure"
+    type: service
+    layer: middleware
+    dependencies:
+      - servicebus
+  - id: profile
+    name: "Profile"
+    type: service
+    layer: middleware
+    dependencies:
+      - servicebus
+  - id: guestlist
+    name: "Guestlist"
+    type: service
+    layer: middleware
+    dependencies:
+      - servicebus
+  - id: reservation
+    name: "Reservation"
+    type: service
+    layer: middleware
+    dependencies:
+      - servicebus
+  - id: servicebus
+    name: "Service Bus"
+    type: queue
+    layer: middleware
+  - id: seabookcore
+    name: "Seabook Core"
+    type: service
+    layer: onpremise
+layers:
+  - id: xp
+    name: "XP"
+  - id: middleware
+    name: "Middleware Components"
+  - id: onpremise
+    name: "On-Premise"
+types:
+  service:
+    name: "Service"
+    icon: "https://image.flaticon.com/icons/png/128/384/384474.png"
+  gateway:
+    name: "Gateway"
+    icon: "https://cdn4.iconfinder.com/data/icons/network-and-sharing-line-icons-vol-1/48/02-256.png"
